@@ -6,6 +6,7 @@
 package arraypro;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  *
@@ -47,7 +48,66 @@ public class ArrayPro {
         System.out.println("nums2= "+Arrays.toString(nums2));
         nums=nums2;
         System.out.println("nums= "+Arrays.toString(nums2));
+        
+        System.out.println("Многомерные массивы");
+        int[][] matrix= new int[5][5];
+        for (int  i = 0;  i < matrix.length;  i++) {
+            for (int  j = 0;  j < matrix[i].length;  j++) {
+                matrix[i][j]=i*j;
+            }    
+        }
+        int[] sumCols = new int[5];
+        for (int  i = 0;  i < matrix.length;  i++) {
+            int sum=0;
+            for (int  j = 0;  j < matrix[i].length;  j++) {
+                System.out.printf("%4d",matrix[i][j]);
+                sum+=matrix[i][j];
+                sumCols[j]+=matrix[i][j];
+            }  
+            System.out.println("| сумма строки = "+sum);
+                }
+            System.out.println("   --Сумма столбцов--"); 
+            for (int  i = 0;  i < sumCols.length;  i++) {
+                System.out.printf("%4d", sumCols[i]);
+            
+        }
+            
+            System.out.println("");
+            System.out.println("Зубчатые массивы");
+            int[][] matrixZ= new int [7][];
+            matrixZ[0]=new int[1];
+            matrixZ[1]=new int[5];
+            matrixZ[2]=new int[6];
+            matrixZ[3]=new int[2];
+            matrixZ[4]=new int[8];
+            matrixZ[5]=new int[6];
+            matrixZ[6]=new int[10];
+            Random random = new Random();
+            int min=0, max=9;
+            int sum=0;
+            for (int  i = 0;  i < matrixZ.length;  i++) {
+                for (int j = 0; j < matrixZ[i].length; j++) {
+                    matrixZ[i][j]=random.nextInt(max-min+1)+min;
+                    System.out.printf("%4d",matrixZ[i][j]); 
+                    sum+=matrixZ[i][j];
+                    
+            }
+                System.out.printf(" | Сумма строки="+sum);
+                
+                System.out.println("");
+            }
+            System.out.println("Строка в Java");   
+            String str;
+            str="Это строка";
+            System.out.println("str = "+str);
+            System.out.println("Редактирование строки создает новую строку");
+            str = str.replace('а', 'и');
+            System.out.println("str="+str);
+            
+                
+        }
     }
+
     
     
-}
+
